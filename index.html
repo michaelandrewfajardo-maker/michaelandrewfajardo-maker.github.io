@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loveloves birthday</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif; /* Fun, playful font */
+            background: linear-gradient(135deg, #ff69b4, #ffb6c1, #ffc0cb); /* Heart-themed pinks */
+            color: #333;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        header {
+            background: linear-gradient(45deg, #ff1493, #ff69b4); /* Deep pink gradient */
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+        nav {
+            margin-top: 10px;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: #ffe4e1; /* Light pink on hover */
+            text-decoration: underline;
+        }
+        section {
+            padding: 120px 20px 50px; /* Adjusted for fixed header */
+            min-height: 100vh;
+            text-align: center;
+            position: relative;
+        }
+        #home {
+            background: url('https://via.placeholder.com/1920x1080/ff69b4/ffffff?text=Hearts+Background') no-repeat center center/cover; /* Heart-themed background image */
+            color: white;
+        }
+        #welcome {
+            background-color: rgba(255, 228, 225, 0.9); /* Misty rose with transparency */
+        }
+        #memories {
+            background-color: rgba(255, 182, 193, 0.9); /* Light pink with transparency */
+        }
+        #letter {
+            background-color: rgba(255, 192, 203, 0.9); /* Pink with transparency */
+        }
+        #gallery {
+            background-color: rgba(255, 105, 180, 0.9); /* Hot pink with transparency */
+        }
+        .image-container {
+            margin: 20px 0;
+            position: relative;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 50%; /* Circular images for a heart-like feel */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+        .image-container img:hover {
+            transform: scale(1.05);
+        }
+        .letter {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
+            line-height: 1.6;
+            font-size: 1.1em;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        h1, h2 {
+            font-size: 2.5em;
+            color: #ff1493; /* Deep pink */
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .balloons, .hearts {
+            font-size: 2em;
+            margin: 20px 0;
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        .floating-hearts {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        .heart {
+            position: absolute;
+            color: #ff69b4;
+            font-size: 2em;
+            animation: fall 10s linear infinite;
+        }
+        @keyframes fall {
+            0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .gallery img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+        .gallery img:hover {
+            transform: scale(1.1);
+        }
+        .wish-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .wish-form input, .wish-form textarea, .wish-form button {
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ff69b4;
+            border-radius: 5px;
+            font-family: inherit;
+        }
+        .wish-form button {
+            background: #ff1493;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .wish-form button:hover {
+            background: #ff69b4;
+        }
+        footer {
+            background: linear-gradient(45deg, #ff1493, #ff69b4);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+        @media (max-width: 768px) {
+            h1, h2 { font-size: 2em; }
+            .gallery img { width: 150px; height: 150px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>💖 Happy Birthday! 💖</h1>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#welcome">Small message</a>
+            <a href="#memories">how pretty are you</a>
+            <a href="#gallery">cute pics mopo</a>
+            <a href="#letter">long message ku</a>
+        </nav>
+    </header>
+
+    <section id="home">
+        <div class="floating-hearts">
+            <!-- Floating hearts animation -->
+            <div class="heart" style="left: 10%; animation-delay: 0s;">❤️</div>
+            <div class="heart" style="left: 20%; animation-delay: 1s;">💖</div>
+            <div class="heart" style="left: 30%; animation-delay: 2s;">💕</div>
+            <div class="heart" style="left: 40%; animation-delay: 3s;">❤️</div>
+            <div class="heart" style="left: 50%; animation-delay: 4s;">💖</div>
+            <div class="heart" style="left: 60%; animation-delay: 5s;">💕</div>
+            <div class="heart" style="left: 70%; animation-delay: 6s;">❤️</div>
+            <div class="heart" style="left: 80%; animation-delay: 7s;">💖</div>
+            <div class="heart" style="left: 90%; animation-delay: 8s;">💕</div>
+        </div>
+        <h2>Welcome to Your Heartfelt Birthday Celebration!</h2>
+        <div class="hearts">💖💖💖</div>
+        <p>Hello lovelove ihope maging happy ka dito ilove you sooo muchhh</p>
+        <div class="image-container">
+            <img src="pacute.png" alt="Heart-Shaped Birthday Cake">
+            <!-- Replace with your own image URL or file path, e.g., src="heart-cake.jpg" -->
+        </div>
+    </section>
+
+    <section id="welcome">
+        <h2>Happy birthday to my one and only love</h2>
+        <div class="balloons">🎈🎈🎈</div>
+        <p>Hello love this is your birthday i hope you know that you are the most prettiest i have, always remember that i love you always my lovelove</p>
+        <div class="image-container">
+            <img src="https://via.placeholder.com/400x300/ffb6c1/ffffff?text=Birthday+Decorations" alt="Birthday Decorations">
+        </div>
+    </section>
+
+    <section id="memories">
+        <h2>Cute pics of my birthday girl</h2>
+        <p>Here she is my pretty, cute, lovelove, you are my every thing, your face is the most perfect view i ever see in my whole life</p>
+        <div class="hearts">💕💕💕</div>
+        <!-- Add more content or images here if needed -->
+        <p>your prettyness remind me how important are you in my life this pics brings me courage tobe stronf everyday</p>
+    </section>
+
+    <section id="gallery">
+        <h2>Photo Gallery of Love</h2>
+        <p>look how pretty and cute are you lovelove</p>
+        <div class="gallery">
+            <img src="pic1.jpeg" alt="Memory 1">
+            <img src="pic2.jpeg" alt="Memory 2">
+            <img src="pic3.jpeg" alt="Memory 3">
+            <img src="pic4.jpeg" alt="Memory 4">
+            <img src="pic5.jpeg" alt="Memory 4">
+            <!-- Replace with your own image URLs or file paths -->
+        </div>
+        <div class="hearts">❤️❤️❤️</div>
+    </section>
+
+    <section id="letter">
+        <h2>i hope mabasa moto HEHEEE</h2>
+        <div class="letter">
+            <p>To: lovelove</p>
+            <p>Hello wifey, happy 18th birthday po, more birthday to come, please always take care of yourself love mashado akong malayo para alaagaan ka i hope gawin mo yon para sakin, you're 18 na another stage of your life sana mas maging independent kapa sa ngayon i hope dika pang hinaan ng loob sa mga problema na kakaharapin mo just always remember na I'm always here to support you and I'm always here proud of you, i hope matupad mo yung dreams mo i always support you kung san ka happy, sana mas lalo kang bumawi at hindi ka pumayag na hilahin ka pababa nung mga bagay na nakakasira ng araw mo, palagi mong unahin yung mga kelangan mi sa buhay gawin mkong last of your priorities kase im always here waiting for you at kaya kong intindihin na merong mga bagay na dapat unahin at yun ay ang future mo. be proud of yourself alam kong kayang kaya mo lahat kinakabahan ka lang i hope wag mong pag dudahan capabilities mo kase i know sobrang galing mo, you make me proud sa lahat kahit konting efforts parin yung pinapakita mo, be yourself and do your best is enough, hindi mo kelangan makipag kompitensya sa iba kase iba ka sa kanila i hope matuto ka sa mga pagkakamali mo from your past im not here to judge you or what I'm always here to support and loudly say na proud ako sayo, hindi to ai love i love making this lang po. i hope you know na si mula nung dumating ka palagi akong nasa tabi mo, yes malayo ako pero handa akong ipa feel sayo na im always here your number one fan, wag mong mashadong pagudin sarili mo love marami kang time para mag pahinga pag pagod pahinga lang ah bawal kang sumuko sa mga dreams mo.For me having you makes me proud of my self kase ang swerte ko lang na dumating ka, i know na kahit andami kong pag kukulang sayo nag stay ka. im always here para mapag rantan mo and mapag sabihan mo ng mga problema mo handa akong makinig kahit ano pa man yan, as your suitor I'll do my best para maging enough and makes you proud, so yon love enjoy your day okay lang dito ang baby mo just always remember na i always love youuuu, ILOVEYOUUU SOOO MUCHHH LOVELOVE KOOOO😙❤️✨</p>
+            
+        
+    </section>
+
+    <footer>
+        <p>Made by me your kael</p>
+    </footer>
+
+    <script>
+        // Simple script to add more floating hearts dynamically
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = '💕';
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.animationDelay = Math.random() * 10 + 's';
+            document.querySelector('.floating-hearts').appendChild(heart);
+            setTimeout(() => heart.remove(), 10000);
+        }
+        setInterval(createHeart, 2000); // Add a new heart every 2 seconds
+    </script>
+</body>
+</html>
